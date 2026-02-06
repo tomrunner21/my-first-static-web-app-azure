@@ -1,275 +1,1066 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Personal Site</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Microsoft Should Hire Gabriella ✨</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --microsoft-blue: #0078D4;
+      --purple: #5C2D91;
+      --orange: #D83B01;
+      --green: #107C10;
+    }
+    
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    /* Floating Elements */
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .shape-1 { width: 400px; height: 400px; background: var(--microsoft-blue); top: -100px; right: -100px; }
+    .shape-2 { width: 300px; height: 300px; background: var(--purple); bottom: 20%; left: -100px; }
+    .shape-3 { width: 200px; height: 200px; background: var(--orange); top: 40%; right: 10%; }
+    .shape-4 { width: 150px; height: 150px; background: var(--green); bottom: 10%; right: 30%; }
+    
+    /* Hero Section - KEEPING AS IS */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    
+    .wave-emoji {
+      font-size: 64px;
+      animation: wave 1s ease-in-out infinite;
+      display: inline-block;
+    }
+    
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(20deg); }
+      75% { transform: rotate(-20deg); }
+    }
+    
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      margin: 20px 0;
+      line-height: 1.2;
+    }
+    
+    .hero h1 .company {
+      background: linear-gradient(135deg, var(--microsoft-blue), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero .tagline {
+      font-size: 20px;
+      color: #666;
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+    
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      animation: bounce 2s infinite;
+      font-size: 14px;
+      color: #999;
+    }
+    
+    .scroll-hint span {
+      display: block;
+      font-size: 24px;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+    /* NEW: Editorial Intro Section */
+    .editorial-intro {
+      padding: 120px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
+    .editorial-intro .big-statement {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-        }
+    .editorial-intro .big-statement .highlight {
+      color: var(--microsoft-blue);
+    }
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    .editorial-intro .details {
+      border-left: 3px solid var(--microsoft-blue);
+      padding-left: 30px;
+    }
 
-        header p {
-            font-size: 1.3em;
-            opacity: 0.95;
-        }
+    .editorial-intro .details p {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 24px;
+    }
 
-        .content {
-            padding: 50px 40px;
-        }
+    .editorial-intro .quick-facts {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
 
-        section {
-            margin-bottom: 50px;
-        }
+    .editorial-intro .quick-facts .fact {
+      text-align: center;
+    }
 
-        h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
+    .editorial-intro .quick-facts .number {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--microsoft-blue);
+      line-height: 1;
+    }
 
-        .about p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 15px;
-        }
+    .editorial-intro .quick-facts .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-top: 4px;
+    }
 
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+    /* NEW: The Match Section */
+    .match-section {
+      padding: 100px 40px;
+      background: #0a0a0a;
+      color: #fff;
+    }
 
-        .skill-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .match-section h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--microsoft-blue);
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
-        }
+    .match-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
 
-        .skill-card h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
+    .match-card {
+      padding: 50px 40px;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      transition: all 0.3s;
+    }
 
-        .skill-card p {
-            color: #666;
-            font-size: 0.95em;
-        }
+    .match-card:hover {
+      background: rgba(255,255,255,0.03);
+    }
 
-        .projects {
-            display: grid;
-            gap: 25px;
-        }
+    .match-card .need {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #666;
+      margin-bottom: 16px;
+    }
 
-        .project-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+    .match-card h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
 
-        .project-card:hover {
-            transform: scale(1.02);
-        }
+    .match-card .proof {
+      font-size: 15px;
+      color: #888;
+      line-height: 1.6;
+    }
 
-        .project-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
+    .match-card .proof strong {
+      color: var(--microsoft-blue);
+      font-weight: 600;
+    }
 
-        .project-card p {
-            color: #555;
-            line-height: 1.7;
-        }
+    .match-card::after {
+      content: '✓';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 28px;
+      height: 28px;
+      background: var(--microsoft-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
 
-        .contact {
-            text-align: center;
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 10px;
-        }
+    /* NEW: Portfolio Showcase */
+    .portfolio-section {
+      padding: 120px 40px;
+    }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
+    .portfolio-section h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+    }
 
-        .contact-links a {
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .portfolio-section .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 80px;
+    }
 
-        .contact-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
+    .portfolio-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-            background: #f8f9fa;
-        }
+    .portfolio-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
+    .portfolio-card:hover {
+      transform: scale(1.02);
+    }
 
-            header p {
-                font-size: 1.1em;
-            }
+    .portfolio-card.large {
+      grid-row: span 2;
+    }
 
-            .content {
-                padding: 30px 20px;
-            }
+    .portfolio-card .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
 
-            h2 {
-                font-size: 1.6em;
-            }
+    .portfolio-card.b2b .bg {
+      background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    }
 
-            .skills {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .portfolio-card.beauty .bg {
+      background: linear-gradient(135deg, #e91e63 0%, #26a69a 100%);
+    }
+
+    .portfolio-card.ai .bg {
+      background: linear-gradient(135deg, var(--microsoft-blue) 0%, var(--purple) 100%);
+    }
+
+    .portfolio-card .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+      height: 100%;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+
+    .portfolio-card .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .portfolio-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-card p {
+      font-size: 15px;
+      opacity: 0.9;
+      max-width: 400px;
+    }
+
+    .portfolio-card .metrics {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .portfolio-card .metric {
+      text-align: left;
+    }
+
+    .portfolio-card .metric .value {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .portfolio-card .metric .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+
+    /* NEW: Journey Section - Card Grid */
+    .journey-section {
+      padding: 120px 40px;
+      position: relative;
+    }
+
+    .journey-section h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .journey-section .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+
+    .journey-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .journey-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      border-left: 4px solid var(--microsoft-blue);
+    }
+
+    .journey-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .journey-card .date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--microsoft-blue);
+      margin-bottom: 8px;
+    }
+
+    .journey-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .journey-card .company {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .journey-card p {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    .journey-card.featured {
+      grid-column: span 2;
+      border-left-color: var(--purple);
+      background: linear-gradient(135deg, rgba(0,120,212,0.03), rgba(92,45,145,0.03));
+    }
+
+    /* NEW: Education & Background Section */
+    .background-section {
+      padding: 120px 40px;
+      background: #0a0a0a;
+      color: #fff;
+      position: relative;
+    }
+
+    .background-section h2 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .background-section .subtitle {
+      text-align: center;
+      color: #888;
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+
+    .background-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .background-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 24px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .background-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-5px);
+    }
+
+    .background-card .emoji {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .background-card h4 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .background-card p {
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 120px 40px;
+      position: relative;
+    }
+
+    .cta-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--microsoft-blue), var(--purple));
+      border-radius: 24px;
+      padding: 80px 60px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-container::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .cta-container::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-buttons a {
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .cta-buttons .primary {
+      background: #fff;
+      color: var(--microsoft-blue);
+    }
+    
+    .cta-buttons .secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    
+    .cta-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      color: #666;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+    
+    footer .heart {
+      color: #e91e63;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 40px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: #f5f5f5;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #e0e0e0;
+    }
+
+    .modal .tag {
+      display: inline-block;
+      background: rgba(0,120,212,0.1);
+      color: var(--microsoft-blue);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .modal h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .modal .summary {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .modal h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      margin-bottom: 16px;
+      margin-top: 32px;
+    }
+
+    .modal ul {
+      padding-left: 20px;
+    }
+
+    .modal li {
+      margin-bottom: 12px;
+      color: #444;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .modal .metrics-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+    }
+
+    .modal .metric {
+      text-align: center;
+    }
+
+    .modal .metric .value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--microsoft-blue);
+    }
+
+    .modal .metric .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .editorial-intro { grid-template-columns: 1fr; gap: 40px; }
+      .editorial-intro .big-statement { font-size: 36px; }
+      .match-container { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card.large { grid-row: span 1; }
+      .journey-grid { grid-template-columns: 1fr; }
+      .journey-card.featured { grid-column: span 1; }
+      .background-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-container { padding: 60px 30px; }
+      .cta-section h2 { font-size: 32px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>John Doe</h1>
-            <p>Cloud Architect & Developer</p>
-        </header>
 
-        <div class="content">
-            <section class="about">
-                <h2>About Me</h2>
-                <p>
-                    Hello! I'm a passionate cloud architect with expertise in Azure, AWS, and modern web technologies. 
-                    I love building scalable solutions and helping teams leverage cloud infrastructure effectively.
-                </p>
-                <p>
-                    With over 5 years of experience in cloud computing, I specialize in designing and implementing 
-                    robust, cost-effective solutions that drive business value.
-                </p>
-            </section>
+  <!-- Floating Shapes -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
 
-            <section>
-                <h2>Skills</h2>
-                <div class="skills">
-                    <div class="skill-card">
-                        <h3>☁️ Cloud Platforms</h3>
-                        <p>Azure, AWS, Google Cloud</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>💻 Development</h3>
-                        <p>JavaScript, Python, C#</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>🔧 DevOps</h3>
-                        <p>CI/CD, Docker, Kubernetes</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>📊 Architecture</h3>
-                        <p>Microservices, Serverless</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Projects</h2>
-                <div class="projects">
-                    <div class="project-card">
-                        <h3>Azure Migration Project</h3>
-                        <p>
-                            Led the migration of legacy applications to Azure cloud, reducing infrastructure 
-                            costs by 40% while improving performance and scalability.
-                        </p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Serverless API Platform</h3>
-                        <p>
-                            Designed and implemented a serverless API platform using Azure Functions, 
-                            handling over 1 million requests per day with 99.9% uptime.
-                        </p>
-                    </div>
-                    <div class="project-card">
-                        <h3>CI/CD Pipeline Automation</h3>
-                        <p>
-                            Built automated deployment pipelines using Azure DevOps, reducing deployment 
-                            time from hours to minutes and eliminating manual errors.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="contact">
-                <h2>Get In Touch</h2>
-                <p>Interested in working together? Let's connect!</p>
-                <div class="contact-links">
-                    <a href="mailto:john.doe@example.com">Email</a>
-                    <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/johndoe" target="_blank">GitHub</a>
-                </div>
-            </section>
-        </div>
-
-        <footer>
-            <p>&copy; 2024 John Doe. Deployed on Azure Static Web Apps.</p>
-        </footer>
+  <!-- Hero - UNCHANGED -->
+  <section class="hero">
+    <span class="wave-emoji">👋</span>
+    <h1>Hey <span class="company">Microsoft</span>,<br>let's work together.</h1>
+    <p class="tagline">I'm Gabriella, a strategic PMM who's worked in 70+ countries and lives at the intersection of AI, startups, and brand building.</p>
+    <div class="scroll-hint">
+      <span>↓</span>
+      Scroll to see why we're a match
     </div>
+  </section>
+
+  <!-- Editorial Intro -->
+  <section class="editorial-intro">
+    <div class="big-statement">
+      You need someone who <span class="highlight">gets</span> founders.<br>
+      I've <span class="highlight">been</span> one.
+    </div>
+    <div class="details">
+      <p>The ABM Lead role sits at the intersection of AI, venture ecosystems, and startup engagement. You need someone who can build strategy AND ship campaigns. Someone who understands what founders actually need.</p>
+      <p>I've pitched investors, built products from zero, and won incubator competitions. I know the founder journey because I've lived it.</p>
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="number">70+</div>
+          <div class="label">Countries</div>
+        </div>
+        <div class="fact">
+          <div class="number">185+</div>
+          <div class="label">Nationalities</div>
+        </div>
+        <div class="fact">
+          <div class="number">35+</div>
+          <div class="label">Projects Led</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Match -->
+  <section class="match-section">
+    <h2>Why This Role Was Made For Me</h2>
+    <div class="match-container">
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>Account Based Marketing expertise</h3>
+        <p class="proof">I ran ABM campaigns across <strong>18 territories</strong> at MBLM for clients like Caterpillar and DP World. Added <strong>1M+ AED</strong> to P&L through strategic wins.</p>
+      </div>
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>AI ecosystem fluency</h3>
+        <p class="proof">Currently serving on the <strong>Global Brain Trust AI & Ethics Board</strong>. I understand the technology, the risks, and the opportunity you're building toward.</p>
+      </div>
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>Strategy + execution blend</h3>
+        <p class="proof">At ADNOC, I managed <strong>35+ projects</strong> with <strong>60+ vendors</strong> while reporting to C-suite. Completed 70% of strategic milestones in 4 months.</p>
+      </div>
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>Startup DNA</h3>
+        <p class="proof"><strong>Top 10 finalist</strong> at Intelak Aviation Incubator. <strong>3rd place</strong> at Ministry of Healthcare hackathon. I've pitched, built, and shipped.</p>
+      </div>
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>Cross-functional leadership</h3>
+        <p class="proof">Coordinated <strong>6 teams</strong> at AHAVA. Led quarterly workshops with <strong>C-suite executives</strong> across MENA and UK at MBLM.</p>
+      </div>
+      <div class="match-card">
+        <div class="need">You need</div>
+        <h3>Global perspective</h3>
+        <p class="proof">Worked with <strong>185+ nationalities</strong> across <strong>70+ countries</strong>. Dual based in Dubai and Seattle. Timezone flexibility built in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio-section">
+    <h2>Work That Speaks</h2>
+    <p class="subtitle">Click to explore each case study</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card large b2b" onclick="openModal('b2b')">
+        <div class="bg"></div>
+        <div class="content">
+          <span class="tag">B2B Marketing</span>
+          <h3>Global Industrial Brand</h3>
+          <p>Multi-territory brand strategy and ABM campaigns for heavy equipment across MENA and UK markets.</p>
+          <div class="metrics">
+            <div class="metric">
+              <div class="value">18</div>
+              <div class="label">Territories</div>
+            </div>
+            <div class="metric">
+              <div class="value">6.7M</div>
+              <div class="label">AED Budget</div>
+            </div>
+            <div class="metric">
+              <div class="value">28%</div>
+              <div class="label">Account Growth</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card beauty" onclick="openModal('beauty')">
+        <div class="bg"></div>
+        <div class="content">
+          <span class="tag">Consumer Marketing</span>
+          <h3>Beauty & Wellness Launch</h3>
+          <p>Product launch campaign with research-backed positioning.</p>
+          <div class="metrics">
+            <div class="metric">
+              <div class="value">70%</div>
+              <div class="label">Purchase Intent</div>
+            </div>
+            <div class="metric">
+              <div class="value">30%</div>
+              <div class="label">Engagement Lift</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card ai" onclick="openModal('ai')">
+        <div class="bg"></div>
+        <div class="content">
+          <span class="tag">AI & Ethics</span>
+          <h3>Policy & Thought Leadership</h3>
+          <p>Publications, interviews, and advisory work on responsible AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Cards -->
+  <section class="journey-section">
+    <h2>My Journey</h2>
+    <p class="subtitle">A career built on global impact</p>
+    <div class="journey-grid">
+      <div class="journey-card featured">
+        <div class="date">2024 – Present</div>
+        <h3>AI & Ethics Advisor</h3>
+        <div class="company">The Global Brain Trust</div>
+        <p>Advising on AI risks through publications, expert interviews, and policy advocacy. Shaping frameworks for responsible AI adoption.</p>
+      </div>
+      <div class="journey-card">
+        <div class="date">2022 – Present</div>
+        <h3>Senior Product Marketing Manager</h3>
+        <div class="company">Kohl Strategic Consulting</div>
+        <p>Consulting for startups on product development, GTM strategy, and demand generation.</p>
+      </div>
+      <div class="journey-card">
+        <div class="date">2021 – 2022</div>
+        <h3>Senior MarComms Manager</h3>
+        <div class="company">ADNOC</div>
+        <p>Led 3M AED rebrand. Managed 35+ projects, 60+ vendors. C-suite reporting.</p>
+      </div>
+      <div class="journey-card">
+        <div class="date">2019 – 2020</div>
+        <h3>Brand Strategy Consultant</h3>
+        <div class="company">MBLM Agency</div>
+        <p>Directed 6.7M AED client across 18 territories. Caterpillar, DP World, Mantrac.</p>
+      </div>
+      <div class="journey-card">
+        <div class="date">2016 – 2018</div>
+        <h3>Digital & Content Marketing</h3>
+        <div class="company">AHAVA Dead Sea Cosmetics</div>
+        <p>70% purchase intent. 30% engagement lift. Multi-channel execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Background -->
+  <section class="background-section">
+    <h2>Education & Global Reach</h2>
+    <p class="subtitle">The foundation behind the work</p>
+    <div class="background-grid">
+      <div class="background-card">
+        <div class="emoji">🎓</div>
+        <h4>Hult</h4>
+        <p>Master of International Business (Honors with Distinction)</p>
+      </div>
+      <div class="background-card">
+        <div class="emoji">🎓</div>
+        <h4>Franklin</h4>
+        <p>Double BA, Economics & Management (Honors Board)</p>
+      </div>
+      <div class="background-card">
+        <div class="emoji">🌍</div>
+        <h4>70+</h4>
+        <p>Countries with direct work experience</p>
+      </div>
+      <div class="background-card">
+        <div class="emoji">📍</div>
+        <h4>Dubai + Seattle</h4>
+        <p>Dual based, timezone flexible</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h2>Ready to Talk?</h2>
+        <p>I'm genuinely excited about this role. Microsoft Startups is exactly where I want to be. Let's connect.</p>
+        <div class="cta-buttons">
+          <a href="mailto:bria.kohlberg@gmail.com" class="primary">bria.kohlberg@gmail.com</a>
+          <a href="https://linkedin.com/in/gabriella-kohlberg" class="secondary">LinkedIn Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with <span class="heart">♥</span> for Microsoft Startups | Gabriella Kohlberg 2025</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <span class="tag" id="modal-tag"></span>
+      <h3 id="modal-title"></h3>
+      <p class="summary" id="modal-summary"></p>
+      <h4>Key Contributions</h4>
+      <ul id="modal-contributions"></ul>
+      <div class="metrics-row" id="modal-metrics"></div>
+    </div>
+  </div>
+
+  <script>
+    const modalData = {
+      b2b: {
+        tag: "B2B Marketing",
+        title: "Global Industrial Brand",
+        summary: "At MBLM, I directed brand strategy and account based marketing campaigns for major industrial clients across 18 territories spanning MENA and UK markets.",
+        contributions: [
+          "Led strategic positioning for a 6.7M AED client portfolio across multiple regions",
+          "Developed integrated campaigns for Caterpillar, DP World, Mantrac, and JAFZA",
+          "Created digital touchpoints including websites, sales tools, and 3D product models",
+          "Conducted quarterly business reviews with C-suite executives",
+          "Managed RFP/RFQ processes that added 1M+ AED to P&L"
+        ],
+        metrics: [
+          { value: "18", label: "Territories" },
+          { value: "6.7M", label: "AED Budget" },
+          { value: "28%", label: "Account Growth" },
+          { value: "1M+", label: "AED Won" }
+        ]
+      },
+      beauty: {
+        tag: "Consumer Marketing",
+        title: "Beauty & Wellness Product Launch",
+        summary: "Led digital and content marketing strategy for a global beauty brand's new product line, from consumer research through multi-channel campaign execution.",
+        contributions: [
+          "Conducted consumer and competitive analysis to validate product positioning",
+          "Developed multi-channel promotional campaigns including how-to videos and SEO content",
+          "Created user journey mapping to optimize the path to purchase",
+          "Coordinated with R&D, retail, and PR teams for integrated launch",
+          "Built content strategy that increased weekly engagement by 30%"
+        ],
+        metrics: [
+          { value: "70%", label: "Purchase Intent" },
+          { value: "30%", label: "Engagement Lift" },
+          { value: "9", label: "Product Videos" },
+          { value: "6", label: "Teams Aligned" }
+        ]
+      },
+      ai: {
+        tag: "AI & Ethics",
+        title: "AI Policy & Thought Leadership",
+        summary: "Currently serving on the Global Brain Trust's AI & Ethics Board, advising organizations on responsible AI adoption and contributing to public discourse on AI governance.",
+        contributions: [
+          "Publishing articles and thought leadership on AI risks and ethical considerations",
+          "Providing expert interviews on responsible AI adoption",
+          "Contributing to policy advocacy efforts for AI governance",
+          "Educating stakeholders on emerging AI capabilities and implications",
+          "Building frameworks for ethical AI implementation in enterprise settings"
+        ],
+        metrics: [
+          { value: "Active", label: "Board Member" },
+          { value: "Global", label: "Reach" },
+          { value: "Policy", label: "Focus" }
+        ]
+      }
+    };
+
+    function openModal(key) {
+      const data = modalData[key];
+      document.getElementById('modal-tag').textContent = data.tag;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-summary').textContent = data.summary;
+      
+      const contributionsList = document.getElementById('modal-contributions');
+      contributionsList.innerHTML = data.contributions.map(c => `<li>${c}</li>`).join('');
+      
+      const metricsRow = document.getElementById('modal-metrics');
+      metricsRow.innerHTML = data.metrics.map(m => `
+        <div class="metric">
+          <div class="value">${m.value}</div>
+          <div class="label">${m.label}</div>
+        </div>
+      `).join('');
+      
+      document.getElementById('modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+      if (!event || event.target.classList.contains('modal-overlay')) {
+        document.getElementById('modal').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
 </body>
 </html>
